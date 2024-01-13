@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- icon link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+    <!-- favicon -->
+    <link rel="icon" href="/images/transparent.png" type="image/x-icon" />
+    <!-- link admin.css -->
+    <link rel="stylesheet" href="./styles/admin.css" />
+    <link rel="stylesheet" href="./styles/addbook.css" />
+
+    <title>All Care Academy Admin</title>
+    <style>
+      .adminactive {
+        width: 0%;
+        transition: 0.3s;
+      }
+      .adminacright {
+        width: 100%;
+        transition: 0.3s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="admin">
+      <div class="admin-left">
+        <div class="title">
+          <h3>ShotterShodhane</h3>
+          <div class="removebox">
+            <i class="fas fa-close"></i>
+          </div>
+        </div>
+        <!-- menu -->
+        <%-include("./partials/amleft.ejs")%>
+        <!-- menu -->
+      </div>
+      <div class="admin-right">
+        <!-- top header -->
+        <%-include("./partials/amheader.ejs")%>
+        <!-- -------------all boks table--------------- -->
+        <div class="add-book">
+          <div class="add-booktext">
+            <h2>Upload Notice</h2>
+          </div>
+          <div class="addbook-form">
+            <form action="/show-notice" method="POST">
+              <div class="input-fieldbox">
+                <label for="name">Picture URL</label><br />
+                <input type="text" name="image" required />
+              </div>
+              <button onsubmit="submitform()">Submit</button>
+            </form>
+          </div>
+        </div>
+        <!-- -------------all boks table--------------- -->
+      </div>
+    </div>
+    <!-- chart.js link -->
+    <!-- sweet alert link -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+      // submit form
+      function submitform(e) {
+        e.preventDefault();
+      }
+      let adminleft = document.querySelector(".admin-left");
+      let adminright = document.querySelector(".admin-right");
+      let sideicon = document.querySelector(".side-icon");
+      sideicon.addEventListener("click", function () {
+        adminleft.classList.toggle("adminactive");
+        adminright.classList.toggle("adminacright");
+      });
+      let sideicon2 = document.querySelector(".side-icon2");
+      sideicon2.addEventListener("click", function () {
+        adminleft.style.left = "0";
+      });
+      let removebox = document.querySelector(".removebox");
+      removebox.addEventListener("click", () => {
+        adminleft.style.left = "-400px";
+      });
+      var oriloaction = window.location.pathname;
+      var linka = document.querySelectorAll("ul li a").forEach((e) => {
+        if (e.href.includes(oriloaction)) {
+          e.classList.add("activelink");
+        }
+      });
+    </script>
+  </body>
+</html>

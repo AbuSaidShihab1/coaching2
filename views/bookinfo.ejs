@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- favicon -->
+    <link rel="icon" href="/images/transparent.png" type="image/x-icon" />
+    <!-- boxicon link -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+    <!-- css link home.css -->
+    <link rel="stylesheet" href="/styles/home.css" />
+    <link rel="stylesheet" href="/styles/footer.css" />
+    <link rel="stylesheet" href="/styles/allbook.css" />
+    <link rel="stylesheet" href="/styles/bookinfo.css" />
+
+    <title>All Care Academy Library</title>
+  </head>
+  <body>
+    <div class="allbook-container">
+      <div class="header-main">
+        <%-include("./partials/header.ejs")%>
+        <!-- subheader -->
+        <%-include("./partials/subheader.ejs")%>
+        <!-- subheader -->
+      </div>
+      <!-- ----------------all book information------------------ -->
+      <div class="book-information">
+        <div class="book-orgpic">
+          <img src="<%=matchbookdata.image%>" alt="" />
+        </div>
+        <div class="book-allinfos">
+          <h2><%=matchbookdata.full_name%></h2>
+          <p>লেখক :<span><%=matchbookdata.writter_name%></span></p>
+          <p>প্রকাশনী : <span><%=matchbookdata.company_name%></span></p>
+          <p>বিষয় : <span><%=matchbookdata.book_name%></span></p>
+          <div class="stock-box">
+            <div class="stock-img">
+              <img src="/images/check.png" alt="" />
+            </div>
+            <p><span><%=matchbookdata.quantity%></span> টি আছে</p>
+          </div>
+        </div>
+      </div>
+      <!-- ------------------all book information--------------- -->
+      <!-- --------------------------footer-------------------- -->
+      <%-include("./partials/footer.ejs")%>
+      <!-- ----------------------footer------------------- -->
+    </div>
+  </body>
+</html>

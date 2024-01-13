@@ -1,0 +1,85 @@
+.allbook-home {
+  width: 100%;
+  height: auto;
+  display: flex;
+  gap: 20px;
+  padding: 30px 100px;
+}
+.allbook-left {
+  width: 30%;
+  height: 100%;
+  background-color: white;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 3px;
+}
+.allbook-right {
+  width: 70%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.allbook-lefttitle {
+  padding: 10px;
+  border-bottom: 1px solid whitesmoke;
+}
+.allbook-lefttitle h2 {
+  font-size: 20px;
+  color: #737588;
+}
+.allbook-subject {
+  padding: 10px;
+}
+.allbook-subject ul li {
+  list-style: none;
+  padding: 10px 0px;
+}
+.allbook-subject ul li a {
+  font-size: 18px;
+  text-decoration: none;
+  color: #a4b0be;
+}
+/* ------------------------bookinfo-show------------------- */
+.bookinfo-box {
+  width: 20%;
+  height: auto;
+}
+.bookinfo-show {
+  width: 100%;
+  height: 350px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 2px;
+  border: 1px solid #ecf0f1;
+}
+/* activelink */
+.activelink {
+  color: black;
+}
+
+/* ---------------responsive code----------------- */
+@media (max-width: 768px) {
+  .allbook-home {
+    flex-direction: column-reverse;
+    padding: 20px 30px;
+  }
+  .allbook-left {
+    width: 100%;
+  }
+  .allbook-right {
+    width: 100%;
+  }
+  .bookinfo-box {
+    width: 45%;
+  }
+  .allbook-lefttitle h2 {
+    font-size: 17px;
+  }
+  .allbook-subject ul li {
+    padding: 7px 0px;
+  }
+  .allbook-subject ul li a {
+    font-size: 15px;
+  }
+}

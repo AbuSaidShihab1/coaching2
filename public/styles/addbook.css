@@ -1,0 +1,182 @@
+.add-book {
+  width: 100%;
+  padding: 30px 50px;
+}
+.add-booktext {
+  padding-bottom: 20px;
+}
+.add-booktext h2 {
+  font-size: 25px;
+  font-weight: 500;
+}
+.formbox label {
+  font-size: 19px;
+}
+form button {
+  width: 200px;
+  font-size: 17px;
+  cursor: pointer;
+  background-color: #546dff;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 2px 5px rgba(0, 0, 0, 0.1);
+  border: none;
+  color: white;
+  height: 55px;
+  margin-top: 10px;
+}
+form button:hover {
+  background-color: #2980b9;
+}
+.input-field {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+.input-field .formbox {
+  width: 50%;
+}
+
+.formbox select {
+  width: 100%;
+  height: 55px;
+  padding: 1px;
+  background: none;
+  border: 1px solid #dcdde1;
+  font-size: 17px;
+}
+.input-fieldbox select {
+  width: 100%;
+  height: 55px;
+  padding: 1px;
+  background: none;
+  border: 1px solid #dcdde1;
+  font-size: 17px;
+}
+.input-field .formbox input {
+  width: 100%;
+  height: 55px;
+  padding: 10px;
+  font-size: 17px;
+  background: none;
+  border: 1px solid #dcdde1;
+}
+.input-fieldbox {
+  width: 100%;
+}
+/* search-inpfield */
+/* .search-inpfield {
+  position: relative;
+} */
+.search-inpfield input {
+  width: 100%;
+  height: 55px;
+  padding: 10px;
+  font-size: 17px;
+  background: none;
+  border: 1px solid #dcdde1;
+}
+.searchbar-header {
+  width: 100%;
+  position: relative;
+}
+.auto-suggetion {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  background-color: white;
+  max-height: 300px;
+  overflow-y: auto;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.sugbox1 {
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  gap: 15px;
+}
+.sugget-box button {
+  padding: 7px 15px;
+  font-size: 15px;
+  color: white;
+  border: none;
+  background: #00a8ff;
+  border-radius: 5px;
+}
+.sugbox1:hover {
+  background-color: whitesmoke;
+}
+.sugbox1 img {
+  width: 40px;
+  height: 40px;
+  border-radius: 3px;
+}
+.sugbox2 h2 {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+.sugbox2 p {
+  font-size: 15px;
+}
+.input-fieldbox input {
+  width: 100%;
+  height: 55px;
+  padding: 10px;
+  font-size: 17px;
+  background: none;
+  border: 1px solid #dcdde1;
+}
+.input-fieldbox {
+  margin-bottom: 10px;
+}
+.input-fieldbox label {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+.picture-addfield {
+  margin-bottom: 15px;
+  width: 100%;
+  height: 50px;
+  border: 1px solid #dcdde1;
+  display: flex;
+  padding: 5px;
+  align-items: center;
+}
+.picture-addfield input {
+  font-size: 17px;
+}
+::-webkit-file-upload-button {
+  padding: 10px;
+  background-color: #546dff;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: white;
+}
+
+/* responsive code */
+@media (max-width: 768px) {
+  .add-book {
+    padding: 20px 30px;
+  }
+  .add-booktext h2 {
+    font-size: 20px;
+  }
+  .formbox label {
+    font-size: 16px;
+  }
+  .input-fieldbox label {
+    font-size: 16px;
+  }
+  .input-fieldbox input {
+    font-size: 16px;
+  }
+}

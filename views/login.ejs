@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- fav cion -->
+    <link
+      rel="shortcut icon"
+      href="/images/transparent.png"
+      type="image/x-icon"
+    />
+    <!-- boxicon link -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+    <!-- ----------------css link---------------- -->
+    <link rel="stylesheet" href="/styles/home.css" />
+    <link rel="stylesheet" href="/styles/login.css" />
+    <link rel="stylesheet" href="/styles/footer.css" />
+
+    <title>All Care Academy-Log In</title>
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="login-main">
+        <div class="header-main">
+          <%-include("./partials/header.ejs")%>
+
+          <!-- subheader -->
+          <%-include("./partials/subheader.ejs")%>
+          <!-- subheader -->
+        </div>
+        <div class="login-form">
+          <div class="login-box">
+            <h1>অ্যাডমিন লগ ইন</h1>
+            <form action="/login" method="POST">
+              <input
+                type="email"
+                placeholder="আপনার ই-মেইল"
+                name="email"
+              /><br />
+              <input
+                type="password"
+                placeholder="********"
+                name="password"
+              /><br />
+              <button>প্রবেশ করুন</button>
+            </form>
+          </div>
+        </div>
+        <!-- --------------------------footer-------------------- -->
+        <%-include("./partials/footer.ejs")%>
+        <!-- ----------------------footer------------------- -->
+      </div>
+    </div>
+  </body>
+</html>

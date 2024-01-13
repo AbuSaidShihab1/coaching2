@@ -1,0 +1,471 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800;900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans Bengali", sans-serif;
+}
+:root {
+  --maincolor: #546dff;
+  --iconcolor: #737588;
+  --subheadcolor: #f2bc00;
+}
+.home {
+  width: 100%;
+}
+.header-main {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: white;
+}
+header {
+  width: 100%;
+  height: 12vh;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  align-items: center;
+  padding: 0px 100px;
+  transition: 0.3s;
+}
+.activeheader {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  transition: 0.3s;
+}
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.logo img {
+  width: 40px;
+}
+.logo h2 {
+  font-weight: 500;
+  font-size: 20px;
+}
+nav ul {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+nav ul li {
+  list-style: none;
+}
+nav ul li a {
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+}
+nav ul button {
+  padding: 10px 24px 10px 24px;
+  font-size: 17px;
+  cursor: pointer;
+  background-color: #546dff;
+  border-radius: 25px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 2px 5px rgba(0, 0, 0, 0.1);
+  border: none;
+  color: white;
+}
+nav ul button a {
+  text-decoration: none;
+  color: white;
+}
+.searchbar-header {
+  width: 40%;
+  height: 50px;
+  position: relative;
+}
+.search-inpfield {
+  width: 100%;
+  height: 100%;
+}
+.auto-suggetion {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  background-color: white;
+  max-height: 300px;
+  overflow-y: auto;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.sugbox1 {
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  gap: 15px;
+}
+.sugget-box button {
+  padding: 7px 15px;
+  font-size: 15px;
+  color: white;
+  border: none;
+  background: #00a8ff;
+  border-radius: 5px;
+}
+.sugbox1:hover {
+  background-color: whitesmoke;
+}
+.sugbox1 img {
+  width: 40px;
+  height: 40px;
+  border-radius: 3px;
+}
+.sugbox2 h2 {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+.sugbox2 p {
+  font-size: 15px;
+}
+@media (max-width: 768px) {
+  .sugbox2 h2 {
+    font-size: 12px;
+  }
+  .sugbox2 p {
+    font-size: 12px;
+  }
+}
+.search-inpfield form input {
+  width: 90%;
+  height: 100%;
+  padding: 0px 15px;
+  font-size: 17px;
+  border: 1px solid #ecf0f1;
+  border-bottom: 2px solid #e74c3c;
+  border-right: none;
+}
+.search-inpfield form input:focus {
+  outline-color: var(--maincolor);
+  border: none;
+}
+.search-inpfield form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.search-inpfield form button {
+  width: 10%;
+  height: 100%;
+  background-color: var(--maincolor);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 0px 5px 5px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-inpfield button i {
+  font-size: 25px;
+  color: white;
+}
+/* ----------------subheader------------------------- */
+.subheader {
+  width: 100%;
+  height: 100%;
+  padding: 0px 100px;
+  border-top: 1px solid #ecf0f1;
+}
+.subheader ul {
+  display: flex;
+}
+.subheader ul li {
+  padding: 15px 20px;
+  border-right: 1px solid #ecf0f1;
+  list-style: none;
+}
+.subheader ul li:first-child {
+  border-left: 1px solid #ecf0f1;
+}
+.subheader ul li:last-child {
+  border-right: none;
+}
+.subheader ul li a {
+  text-decoration: none;
+}
+/* ----------------subheader------------------------- */
+.sidebar {
+  cursor: pointer;
+  display: none;
+}
+.sidebar i {
+  font-size: 30px;
+}
+.hero {
+  padding: 50px 100px;
+  padding-top: 30px;
+  width: 100%;
+  height: 50vh;
+}
+.subhero {
+  width: 100%;
+  height: 100%;
+  background-image: url("https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero-box {
+  width: 50%;
+}
+.hero-box h1 {
+  color: white;
+  text-align: center;
+  margin-bottom: 5px;
+}
+.hero-box h2 {
+  color: white;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.hero-box p {
+  color: #f5f6fa;
+  text-align: center;
+}
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+}
+
+/* ------------------all book------------------ */
+.all-book {
+  padding: 30px 100px;
+}
+.all-booksearch {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 30px;
+}
+.allbook-title h1 {
+  font-size: 25px;
+  font-weight: 500;
+}
+.viewall-field button {
+  padding: 10px 15px;
+  border: none;
+  background-color: var(--maincolor);
+  font-size: 17px;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.viewall-field button a {
+  text-decoration: none;
+  color: white;
+}
+.all-bookcategory {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.bookinfo-box {
+  width: 15%;
+  height: auto;
+}
+.bookinfo-box a {
+  text-decoration: none;
+  color: black;
+}
+.bookinfo-subbox {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  background-color: white;
+  border-radius: 2px;
+  border: 1px solid #ecf0f1;
+  /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+}
+.bookimg {
+}
+.bookimg img {
+  width: 95%;
+  display: block;
+  margin: auto;
+  height: 220px;
+}
+.book-infotext {
+  padding: 5px;
+  padding-top: 10px;
+  text-align: center;
+}
+.book-infotext h2 {
+  font-size: 13px;
+  margin-bottom: 5px;
+  text-align: center;
+  font-family: "Noto Sans Bengali", sans-serif;
+}
+.book-infotext h3 {
+  font-size: 17px;
+  margin-bottom: 5px;
+  color: #16a085;
+  font-family: "Noto Sans Bengali", sans-serif;
+}
+.view-all button {
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: var(--maincolor);
+  border: none;
+  font-size: 17px;
+  color: white;
+  cursor: pointer;
+}
+/* ----------------about section------------------- */
+.about-main {
+  width: 100%;
+  height: auto;
+  padding: 30px 50px;
+}
+.about-text {
+  padding-bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.about-text div {
+  width: 50px;
+  height: 4px;
+  border-radius: 25px;
+  background-color: var(--maincolor);
+}
+.about-text h1 {
+  font-weight: 400;
+  font-size: 30px;
+}
+.about-submain {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+.about-left {
+  width: 60%;
+  height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.aboutbox {
+  width: 45%;
+}
+.iconbox img {
+  width: 50px;
+  margin-bottom: 5px;
+}
+.aboutbox h2 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+.aboutbox p {
+  font-size: 17px;
+  line-height: 25px;
+}
+.about-right {
+  width: 40%;
+  height: 400px;
+}
+.about-right img {
+  width: 70%;
+  height: 400px;
+  border-radius: 5px;
+}
+
+/* ---------------------responsive code---------------------- */
+@media (max-width: 768px) {
+  header {
+    padding: 10px 30px;
+  }
+  .logo img {
+    width: 30px;
+  }
+  .logo h2 {
+    font-size: 15px;
+    display: none;
+  }
+  nav ul button {
+    padding: 8px 18px 8px 18px;
+    font-size: 15px;
+  }
+  .searchbar-header {
+    width: 62%;
+    height: 45px;
+  }
+  .search-inpfield form input {
+    width: 83%;
+    font-size: 15px;
+  }
+  .search-inpfield form button {
+    width: 17%;
+  }
+  .search-inpfield form button i {
+    font-size: 20px;
+  }
+  .subheader {
+    width: 100%;
+    padding: 10px 30px;
+  }
+  .subheader ul li {
+    padding: 10px 8px;
+  }
+  .subheader ul li a {
+    font-size: 14px;
+  }
+  .hero {
+    padding: 20px 30px;
+    height: 32vh;
+  }
+  /* .all-book  */
+  .all-book {
+    padding: 20px 30px;
+  }
+  .allbook-title h1 {
+    font-size: 18px;
+  }
+  .viewall-field button {
+    padding: 6px 10px;
+    font-size: 15px;
+  }
+  .all-bookcategory h2 {
+    font-size: 16px;
+  }
+  .bookinfo-box {
+    width: 45%;
+  }
+  .bookimg img {
+    height: 200px;
+  }
+}

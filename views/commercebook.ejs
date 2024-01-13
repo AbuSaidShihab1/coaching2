@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- favicon -->
+    <link rel="icon" href="/images/transparent.png" type="image/x-icon" />
+    <!-- boxicon link -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+    <!-- css link home.css -->
+    <link rel="stylesheet" href="/styles/home.css" />
+    <link rel="stylesheet" href="/styles/footer.css" />
+    <link rel="stylesheet" href="/styles/allbook.css" />
+
+    <title>All Care Academy Library</title>
+  </head>
+  <body>
+    <div class="allbook-container">
+      <div class="header-main">
+        <%-include("./partials/header.ejs")%>
+        <!-- subheader -->
+        <%-include("./partials/subheader.ejs")%>
+        <!-- subheader -->
+      </div>
+      <!-- ----------------all book------------------ -->
+      <div class="allbook-home">
+        <div class="allbook-left">
+          <div class="allbook-lefttitle">
+            <h2>বিষয়</h2>
+          </div>
+          <div class="allbook-subject">
+            <ul>
+              <li><a href="/bangla">বাংলা</a></li>
+              <li><a href="/english">ইংরেজি</a></li>
+              <li><a href="/math">গণিত</a></li>
+              <li><a href="/chemistry">রসায়ন</a></li>
+              <li><a href="/physics">পদার্থবিজ্ঞান</a></li>
+              <li><a href="/biology">জীববিজ্ঞান</a></li>
+              <li><a href="/ict">তথ্য</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="allbook-right">
+          <%if(commercebook.length > 0){%> <%commercebook.forEach((data)=>{%>
+          <div class="bookinfo-box">
+            <a href="/book-information/<%=data._id%>">
+              <div class="bookinfo-subbox">
+                <div class="bookimg">
+                  <img src="<%=data.image%>" alt="book_name" />
+                </div>
+                <div class="book-infotext">
+                  <h3>শ্রেণী: <%=data.class_name%></h3>
+                  <%if(data.full_name.length >60){%>
+                  <h2><%=data.full_name.slice(0,60)%>...</h2>
+                  <%}else{%>
+                  <h2><%=data.full_name%></h2>
+                  <%}%>
+                </div>
+              </div>
+            </a>
+          </div>
+          <%})%> <%}else{%>
+          <h2>আমাদের কাছে এখন কোনো বই নেই</h2>
+          <%}%>
+        </div>
+      </div>
+      <!-- ------------------all book--------------- -->
+      <!-- --------------------------footer-------------------- -->
+      <%-include("./partials/footer.ejs")%>
+      <!-- ----------------------footer------------------- -->
+    </div>
+    <script>
+      var oriloaction = window.location.pathname;
+
+      document.querySelectorAll(".subheader ul li a").forEach((e) => {
+        if (e.href.includes(oriloaction)) {
+          e.style.color = "red";
+        }
+      });
+    </script>
+  </body>
+</html>

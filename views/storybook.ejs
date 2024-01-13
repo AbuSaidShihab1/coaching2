@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- favicon -->
+    <link rel="icon" href="/images/transparent.png" type="image/x-icon" />
+    <!-- boxicon link -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+    <!-- css link home.css -->
+    <link rel="stylesheet" href="/styles/home.css" />
+    <link rel="stylesheet" href="/styles/footer.css" />
+    <link rel="stylesheet" href="/styles/allbook.css" />
+
+    <title>All Care Academy Library</title>
+  </head>
+  <body>
+    <div class="allbook-container">
+      <div class="header-main">
+        <%-include("./partials/header.ejs")%>
+        <!-- subheader -->
+        <%-include("./partials/subheader.ejs")%>
+        <!-- subheader -->
+      </div>
+      <!-- ----------------all book------------------ -->
+      <div class="allbook-home">
+        <div class="allbook-left">
+          <div class="allbook-lefttitle">
+            <h2>বিষয়</h2>
+          </div>
+          <div class="allbook-subject">
+            <ul>
+              <li><a href="/bangla">বাংলা</a></li>
+              <li><a href="/english">ইংরেজি</a></li>
+              <li><a href="/math">গণিত</a></li>
+              <li><a href="/chemistry">রসায়ন</a></li>
+              <li><a href="/physics">পদার্থবিজ্ঞান</a></li>
+              <li><a href="/biology">জীববিজ্ঞান</a></li>
+              <li><a href="/ict">তথ্য</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="allbook-right">
+          <%if(bookdata.length > 0){%> <%bookdata.forEach((data)=>{%>
+          <div class="bookinfo-box">
+            <a href="/book-information/<%=data._id%>">
+              <div class="bookinfo-subbox">
+                <div class="bookimg">
+                  <img src="<%=data.image%>" alt="book_name" />
+                </div>
+                <div class="book-infotext">
+                  <h3>শ্রেণী: <%=data.class_name%></h3>
+                  <%if(data.full_name.length >60){%>
+                  <h2><%=data.full_name.slice(0,60)%>...</h2>
+                  <%}else{%>
+                  <h2><%=data.full_name%></h2>
+                  <%}%>
+                </div>
+              </div>
+            </a>
+          </div>
+          <%})%> <%}else{%>
+          <h2>আমাদের কাছে এখন কোনো বই নেই</h2>
+          <%}%>
+        </div>
+      </div>
+      <!-- ------------------all book--------------- -->
+      <!-- --------------------------footer-------------------- -->
+      <%-include("./partials/footer.ejs")%>
+      <!-- ----------------------footer------------------- -->
+    </div>
+    <script>
+      let autocomplete_search = document.getElementById("searchfield");
+      let search_result = document.querySelector(".auto-suggetion");
+      autocomplete_search.addEventListener("input", () => {
+        search_result.style.display = "block";
+        load_data(autocomplete_search.value);
+      });
+      async function load_data(query) {
+        let data = await fetch("/get_data");
+        let datajson = await data.json();
+        let matches = datajson.allbookinfo;
+        search_result.innerHTML = "";
+
+        let result = [];
+        if (query.length > 0) {
+          matches.filter((element) => {
+            if (
+              element.book_name.toLowerCase().includes(query.toLowerCase()) ||
+              element.full_name.toLowerCase().includes(query.toLowerCase())
+            ) {
+              let createp = document.createElement("p");
+              let createh2 = document.createElement("h2");
+              let createboximg = document.createElement("img");
+              createboximg.src = element.image;
+              createh2.innerHTML = element.class_name;
+              createp.innerHTML = element.full_name;
+              let createbox = document.createElement("div");
+              let createbox2 = document.createElement("div");
+              createbox.setAttribute("class", "sugbox1");
+              createbox2.setAttribute("class", "sugbox2");
+              createbox.setAttribute("title", element.full_name);
+              createh2.setAttribute("title", element.full_name);
+              createp.setAttribute("title", element.full_name);
+              createboximg.setAttribute("title", element.full_name);
+              createbox.appendChild(createboximg);
+              createbox2.appendChild(createp);
+              createbox2.appendChild(createh2);
+              createbox.appendChild(createbox2);
+              search_result.appendChild(createbox);
+              createbox.addEventListener("click", (e) => {
+                autocomplete_search.value = e.target.title;
+                search_result.style.display = "none";
+
+                // console.log(e.target.title);
+              });
+            }
+          });
+        }
+      }
+      var oriloaction = window.location.pathname;
+
+      document.querySelectorAll(".subheader ul li a").forEach((e) => {
+        if (e.href.includes(oriloaction)) {
+          e.style.color = "red";
+        }
+      });
+    </script>
+  </body>
+</html>

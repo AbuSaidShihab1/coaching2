@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- icon link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+    <!-- favicon -->
+    <link rel="icon" href="/images/transparent.png" type="image/x-icon" />
+    <!-- link admin.css -->
+    <link rel="stylesheet" href="../styles/admin.css" />
+    <link rel="stylesheet" href="../styles/addbook.css" />
+
+    <title>All Care Academy Admin</title>
+    <style>
+      .adminactive {
+        width: 0%;
+        transition: 0.3s;
+      }
+      .adminacright {
+        width: 100%;
+        transition: 0.3s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="admin">
+      <div class="admin-left">
+        <div class="title">
+          <h3>ShotterShodhane</h3>
+          <div class="removebox">
+            <i class="fas fa-close"></i>
+          </div>
+        </div>
+        <!-- menu -->
+        <%-include("./partials/amleft.ejs")%>
+        <!-- menu -->
+      </div>
+      <div class="admin-right">
+        <!-- top header -->
+        <%-include("./partials/amheader.ejs")%>
+        <!-- -------------all boks table--------------- -->
+        <div class="add-book">
+          <div class="add-booktext">
+            <h2>শিক্ষার্থীর তথ্য আপডেট করুন</h2>
+          </div>
+          <div class="addbook-form">
+            <form
+              action="/student-library-information-update-first-year/<%=libraryinfo._id%>"
+              method="post"
+            >
+              <div class="searchbar-header">
+                <div class="search-inpfield">
+                  <label for="name">Book name</label>
+                  <input
+                    type="text"
+                    name="bookname"
+                    id="searchfield"
+                    autocomplete="off"
+                    value="<%=libraryinfo.book_name%>"
+                    placeholder="বইয়ের নাম ও লেখক দিয়ে অনুসন্ধান করুন"
+                  />
+                </div>
+                <div class="auto-suggetion"></div>
+              </div>
+              <div class="input-fieldbox">
+                <label for="name">Student Name</label><br />
+                <input
+                  type="text"
+                  name="stdname"
+                  value="<%=libraryinfo.student_name%>"
+                  required
+                />
+              </div>
+              <div class="input-field">
+                <div class="formbox">
+                  <label for="name">Student Id</label><br />
+                  <input
+                    type="text"
+                    value="<%=libraryinfo.student_id%>"
+                    name="stdid"
+                    required
+                  />
+                </div>
+                <div class="formbox">
+                  <label for="name">Class</label><br />
+                  <input
+                    type="text"
+                    value="<%=libraryinfo.class%>"
+                    name="classname"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="input-field">
+                <div class="formbox">
+                  <label for="name">Group Name</label><br />
+                  <input
+                    type="text"
+                    value="<%=libraryinfo.group_name%>"
+                    name="groupname"
+                    required
+                  />
+                </div>
+                <div class="formbox">
+                  <label for="name">Subject</label><br />
+                  <input
+                    type="text"
+                    value="<%=libraryinfo.subject_type%>"
+                    name="booktype"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="input-field">
+                <div class="formbox">
+                  <label for="name">Book Year</label><br />
+                  <input
+                    type="text"
+                    value="<%=libraryinfo.book_year%>"
+                    name="bookyear"
+                    required
+                  />
+                </div>
+                <div class="formbox">
+                  <label for="name">Days</label><br />
+                  <input
+                    type="text"
+                    value="<%=libraryinfo.days%>"
+                    name="days"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="input-field">
+                <div class="formbox">
+                  <label for="name">Receving Time</label><br />
+                  <input
+                    type="date"
+                    name="recevingtime"
+                    value="<%=libraryinfo.receiving_time%>"
+                    required
+                  />
+                </div>
+                <div class="formbox">
+                  <label for="name">Giving Time</label><br />
+                  <input
+                    type="date"
+                    name="givingtime"
+                    value="<%=libraryinfo.giving_time%>"
+                    required
+                  />
+                </div>
+              </div>
+              <button>সংরক্ষণ করুন</button>
+            </form>
+          </div>
+        </div>
+        <!-- -------------all boks table--------------- -->
+      </div>
+    </div>
+    <!-- chart.js link -->
+    <script>
+      let adminleft = document.querySelector(".admin-left");
+      let adminright = document.querySelector(".admin-right");
+      let sideicon = document.querySelector(".side-icon");
+      sideicon.addEventListener("click", function () {
+        adminleft.classList.toggle("adminactive");
+        adminright.classList.toggle("adminacright");
+      });
+      let sideicon2 = document.querySelector(".side-icon2");
+      sideicon2.addEventListener("click", function () {
+        adminleft.style.left = "0";
+      });
+      let removebox = document.querySelector(".removebox");
+      removebox.addEventListener("click", () => {
+        adminleft.style.left = "-400px";
+      });
+      var oriloaction = window.location.pathname;
+      var linka = document.querySelectorAll("ul li a").forEach((e) => {
+        if (e.href.includes(oriloaction)) {
+          e.classList.add("activelink");
+        }
+      });
+      let autocomplete_search = document.getElementById("searchfield");
+      let search_result = document.querySelector(".auto-suggetion");
+      autocomplete_search.addEventListener("input", () => {
+        // alert(autocomplete_search.value)
+        search_result.style.display = "block";
+        load_data(autocomplete_search.value);
+      });
+      async function load_data(query) {
+        let data = await fetch("/get_data");
+        let datajson = await data.json();
+        let matches = datajson.allbookinfo;
+        search_result.innerHTML = "";
+        let result = [];
+        if (query.length > 0) {
+          matches.filter((element) => {
+            if (
+              element.book_name.toLowerCase().includes(query.toLowerCase()) ||
+              element.full_name.toLowerCase().includes(query.toLowerCase())
+            ) {
+              let createp = document.createElement("p");
+              let createh2 = document.createElement("h2");
+              let createboximg = document.createElement("img");
+              createboximg.src = element.image;
+              createh2.innerHTML = element.class_name;
+              createp.innerHTML = element.full_name;
+              let createbox = document.createElement("div");
+              let createbox2 = document.createElement("div");
+              createbox.setAttribute("class", "sugbox1");
+              createbox2.setAttribute("class", "sugbox2");
+              createbox.setAttribute("title", element.full_name);
+              createh2.setAttribute("title", element.full_name);
+              createp.setAttribute("title", element.full_name);
+              createboximg.setAttribute("title", element.full_name);
+              createbox.appendChild(createboximg);
+              createbox2.appendChild(createp);
+              createbox2.appendChild(createh2);
+              createbox.appendChild(createbox2);
+              search_result.appendChild(createbox);
+              createbox.addEventListener("click", (e) => {
+                autocomplete_search.value = e.target.title;
+                search_result.style.display = "none";
+                // console.log(e.target.title);
+              });
+              // search_result.innerHTML += `
+              // <li title="sdsds">
+              //       <div class="suggetion-box" title="sdsds">
+              //         <div class="sugbox-img" title="sdsds">
+              //           <!-- <img src="${element.image}" alt=""title="${element.book_name}" /> -->
+              //         </div>
+              //         <div class="sugbox-text" title="sdsds">
+              //           <h3 title="sdsds">sdsd</h3>
+              //           <p title="sdsds">sdsd</p>
+              //         </div>
+              //       </div>
+              //     </li>
+              // `;
+            }
+          });
+        }
+      }
+    </script>
+  </body>
+</html>
